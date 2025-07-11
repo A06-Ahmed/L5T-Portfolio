@@ -49,9 +49,6 @@ portolio/
 └── test.html              # Path testing utility
 ```
 
-### 3. Default Login Credentials
-- **Username:** `admin`
-- **Password:** `portfolio2025`
 
 ⚠️ **Important:** Change these credentials in `admin/login.php` for production use.
 
