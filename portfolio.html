@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Lkhatire</title>
+    <link rel="stylesheet" href="assets/portfolio.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <a href="index.html" class="logo-link"><img src="assets/logo 1@2x.png" alt="Logo" height="40"></a>
+        </div>
+        <nav class="nav">
+            <a href="portfolio.html" class="active">PORTFOLIO</a>
+            <a href="index.html#aboutme">ABOUT ME</a>
+            <a href="index.html#service-section">SERVICE AND PRICE</a>
+            <a href="index.html#contact-section">BOOKING</a>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section class="portfolio-intro">
+            <h1>PORTFOLIO</h1>
+            <p>Here you will find a selection of the best works that reflect my style and approach to graphic design. I strive to convey the mood, character and atmosphere of each frame. Each frame is a story told through The screen.</p>
+        </section>
+        <section class="portfolio-grid" id="projects">
+            <!-- Dynamic projects will be loaded here -->
+            <div class="loading">Loading projects...</div>
+        </section>
+    </main>
+    <!-- Modal for portfolio item -->
+    <div id="portfolio-modal" class="portfolio-modal" style="display:none;">
+        <div class="portfolio-modal-backdrop"></div>
+        <div class="portfolio-modal-content">
+            <img id="modal-img" src="" alt="Portfolio Large" />
+            <div class="portfolio-modal-caption">
+                <span id="modal-title"></span>
+                <span id="modal-date"></span>
+            </div>
+            <span class="portfolio-modal-close" id="modal-close">&times;</span>
+        </div>
+    </div>
+    <script src="assets/portfolio-loader.js"></script>
+    <script>
+    // Modal logic is now handled by portfolio-loader.js
+    // This script is kept for backward compatibility
+    </script>
+    <footer class="footer">
+        <div class="footer-main">
+            <div class="footer-title">Lkhatire</div>
+            <nav class="footer-nav">
+                <a href="portfolio.html">PORTFOLIO</a>
+                <a href="index.html#aboutme">ABOUT ME</a>
+                <a href="index.html#service-section">SERVICE AND PRICE</a>
+                <a href="index.html#contact-section">BOOKING</a>
+            </nav>
+        </div>
+        <div class="footer-contact">
+            <div>CONTACT ME</div>
+            <div class="footer-socials">
+                <a href="#">BEHANCE</a>
+                <a href="#">TIKTOK</a>
+                <a href="#">X</a>
+                <a href="#">INSTAGRAM</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>Personal data processing policy</span>
+            <span>&copy; 2025 All rights reserved</span>
+            <span>Design by: LKHATIRE</span>
+        </div>
+    </footer>
+</body>
+</html>

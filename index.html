@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="icon" type="image/png" href="assets/logo 1@2x.png">
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="logo-link"><img class="flogo" src="assets/logo 1@2x.png" alt="Home"></a>
+        <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+        <ul class="navlist">
+            <li><a href="portfolio.html">PORTFOLIO</a></li>
+            <li><a href="#aboutme">ABOUT ME</a></li>
+            <li><a href="#service-section">SERVICE AND PRICE</a></li>
+            <li><a href="#contact-section">BOOKING</a></li>
+        </ul>
+
+    </nav>
+    
+    <div class="fpart">
+        <div class="content-left">
+            <h1 class="fh">THE BEGINNING OF A <br> NEW ART</h1>
+            <a href="#contact-section" class="hero-btn">Book an art →</a>
+        </div>
+    </div>
+    <div class="aboutme" id="aboutme">
+        <div class="aboutme-img">
+            <img src="assets/Untitled-1.jpg" alt="About Me Photo">
+        </div>
+        <div class="aboutme-content">
+            <h1>ABOUT ME</h1>
+            <h2>I'M A GRAPHIC DESIGNER<br>LKHATIRE.</h2>
+            <p>
+                I specialize in branding and digital design, creating bold, creative visuals that stand out for their unique style.<br><br>
+                I believe in the power of design to communicate ideas, build strong identities, and leave a lasting impression.
+            </p>
+            <a href="#contact-section" class="aboutme-btn">BOOKING A DESIGN →</a>
+        </div>
+    </div>
+    <div class="portfolio-section">
+        <h1 class="portfolio-title">PORTFOLIO</h1>
+        <div class="portfolio-grid" id="home-projects">
+            <!-- Dynamic projects will be loaded here -->
+            <div class="loading">Loading projects...</div>
+            <div class="portfolio-item see-more">
+              <a href="portfolio.html">SEE MORE &rarr;</a>
+          </div>
+        </div>
+    </div>
+    <div class="stages-section">
+      <h2 class="stages-title">STAGES OF WORK</h2>
+      <div class="stages-content">
+        <div class="stages-table">
+          <div class="stage-row">
+            <div class="stage-label">One-Time Design</div>
+            <div class="stage-desc">A strong design like a poster or cover that looks clean and cool.</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-label">Design Series</div>
+            <div class="stage-desc">Many designs with the same style for one full project.</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-label">Visual Identity</div>
+            <div class="stage-desc">I make a full look for a brand , logo, colors, and font.</div>
+          </div>
+          <div class="stage-row">
+            <div class="stage-label">Social Media Kit</div>
+            <div class="stage-desc">Posts and stories that make a page look pro and nice.</div>
+          </div>
+        </div>
+        <div class="stages-image">
+          <img src="assets/cover.jpg" alt="Stage Photo">
+        </div>
+      </div>
+    </div>    
+    <div class="service-section" id="service-section">
+        <h2 class="service-title">SERVICE & PRICE</h2>
+        <div class="service-cards">
+          <div class="service-card">
+            <div class="service-card-title">DESIGN | LITE</div>
+            <ul class="service-list">
+              <li>Style references included</li>
+              <li>Help choosing layout and format</li>
+              <li>Design feedback and improvement</li>
+              <li>Final file in your brand colors</li>
+              <li>1 visual (poster, cover, promo, etc.)</li>
+              <li>Delivery in 5–7 days</li>
+            </ul>
+            <div class="service-price-btn">$20 | DESIGN</div>
+    </div>
+    <div class="service-card">
+            <div class="service-card-title">DESIGN | PREMIUM</div>
+            <ul class="service-list">
+              <li>Creative direction + concept ideas</li>
+              <li>Full branding support (colors, fonts, layout)</li>
+              <li>Revisions included</li>
+              <li>Custom touches for a unique look</li>
+              <li>Up to 3 visuals in one style</li>
+              <li>Delivery in 3–5 days</li>
+            </ul>
+            <div class="service-price-btn">$75 | PROJECT</div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-title">SOCIAL MEDIA PACK</div>
+            <ul class="service-list">
+              <li>Visual plan and style guide</li>
+              <li>Post or story series with matching design</li>
+              <li>Consistent, clean content</li>
+              <li>Up to 5 visuals</li>
+              <li>Delivery in 5–7 days</li>
+            </ul>
+            <div class="service-price-btn">$200 | PACK</div>
+          </div>
+        </div>
+    </div>
+    <div class="contact-section" id="contact-section">
+      <div class="contact-container">
+          <div class="contact-form-area">
+              <div class="contact-heading">
+                  <div class="contact-subtitle">WANT WORK WITH ME?</div>
+                  <h2 class="contact-title">CONTACT ME</h2>
+              </div>
+              <form class="contact-form">
+                  <label for="date">Choose date</label>
+                  <input type="date" id="date" name="date" required>
+                  
+                  <label for="fullname">Full Name</label>
+                  <input type="text" id="fullname" name="fullname" required>
+                  
+                  <label for="phone">Phone</label>
+                  <input type="tel" id="phone" name="phone" required>
+                  
+                  <label for="message">Type your message</label>
+                  <textarea id="message" name="message" rows="4" required></textarea>
+                  
+                  <button type="submit" class="contact-btn">SEND A REQUEST</button>
+              </form>
+          </div>
+      </div>
+  </div>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init('fwUEYS-L27aUHJQ3r');
+        })();
+    </script>
+    <script src="assets/contact-email.js"></script>
+    <script src="assets/portfolio-loader.js"></script>
+    <script>
+        // Initialize portfolio loader for home page (show only first 4 projects)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create a new instance for home page
+            const homeLoader = new PortfolioLoader('home-projects');
+            
+            // Override the renderProjects method for home page
+            const originalRender = homeLoader.renderProjects;
+            homeLoader.renderProjects = function() {
+                const container = document.getElementById(this.containerId);
+                if (!container) return;
+                
+                if (this.projects.length === 0) {
+                    container.innerHTML = '<p class="no-projects">No projects available at the moment.</p>';
+                    return;
+                }
+                
+                // Show only first 4 projects on home page
+                const limitedProjects = this.projects.slice(0, 4);
+                const projectsHTML = limitedProjects.map(project => this.createProjectHTML(project)).join('');
+                
+                // Add the "SEE MORE" link
+                container.innerHTML = projectsHTML + '<div class="portfolio-item see-more"><a href="portfolio.html">SEE MORE &rarr;</a></div>';
+            };
+        });
+    </script>
+    <footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand">Lkhatire</div>
+    <ul class="footer-nav">
+      <li><a href="index.html">MAIN PAGE</a></li>
+      <li><a href="#aboutme">ABOUT ME</a></li>
+      <li><a href="#service-section">SERVICE AND PRICE</a></li>
+      <li><a href="#contact-section">BOOKING</a></li>
+    </ul>
+    <div class="footer-contact-box">
+      <div class="footer-contact-title">CONTACT ME</div>
+      <div class="footer-contact-links">
+        <a href="https://www.behance.net/l5atiredesign" target="_blank">BEHANCE</a>
+        <a href="https://www.tiktok.com/@l5t.de" target="_blank">TIKTOK</a>
+        <a href="https://x.com/L5T_de" target="_blank">X</a>
+        <a href="https://www.instagram.com/l5t.de/" target="_blank">INSTAGRAM</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-policy">Personal data processing policy</span>
+    <span class="footer-copyright">© 2025 All rights reserved</span>
+    <span class="footer-credit">Design by: LKHATIRE</span>
+  </div>
+</footer>
+<script>
+  document.getElementById('menu-toggle').onclick = function() {
+      document.querySelector('.navlist').classList.toggle('active');
+  };
+</script>
+</body>
+</html>

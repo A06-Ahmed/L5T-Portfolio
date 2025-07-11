@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Path Test - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            color: #000;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        h2 {
+            color: #000;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .test-section {
+            background: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 1px solid #e9ecef;
+        }
+        
+        .success { 
+            color: #28a745; 
+            font-weight: 500;
+        }
+        
+        .error { 
+            color: #dc3545; 
+            font-weight: 500;
+        }
+        
+        .test-item {
+            margin: 15px 0;
+            padding: 12px;
+            border-left: 4px solid #e9ecef;
+            background: #f8f9fa;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .test-item.success { 
+            border-left-color: #28a745; 
+            background: #f8f9fa;
+        }
+        
+        .test-item.error { 
+            border-left-color: #dc3545; 
+            background: #f8f9fa;
+        }
+        
+        button {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        button:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+        
+        p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        pre {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+            overflow-x: auto;
+            font-size: 12px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+        
+        strong {
+            color: #000;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <h1>Portfolio Path Test</h1>
+    
+    <div class="test-section">
+        <h2>File Path Tests</h2>
+        <div id="path-tests">
+            <div class="test-item">Testing file paths...</div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Admin Panel Test</h2>
+        <p>Test the admin panel functionality:</p>
+        <button onclick="window.open('admin/login.php', '_blank')">Open Admin Login</button>
+        <button onclick="window.open('admin/dashboard.php', '_blank')">Open Admin Dashboard</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>API Test</h2>
+        <p>Test the projects API:</p>
+        <button onclick="testAPI()">Test API Endpoint</button>
+        <div id="api-result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Navigation Test</h2>
+        <p>Test navigation between pages:</p>
+        <button onclick="window.open('index.html', '_blank')">Open Home Page</button>
+        <button onclick="window.open('portfolio.html', '_blank')">Open Portfolio Page</button>
+    </div>
+
+    <script>
+        // Test file paths
+        function testPaths() {
+            const tests = [
+                { name: 'CSS Files', paths: ['assets/style.css', 'assets/portfolio.css'] },
+                { name: 'JavaScript Files', paths: ['assets/portfolio-loader.js', 'assets/contact-email.js'] },
+                { name: 'Image Files', paths: ['assets/logo 1@2x.png', 'assets/cover.jpg'] },
+                { name: 'Admin Files', paths: ['admin/login.php', 'admin/dashboard.php', 'admin/logout.php'] },
+                { name: 'Data Files', paths: ['data/projects.json'] },
+                { name: 'API Files', paths: ['api/projects.php'] }
+            ];
+            
+            const resultsDiv = document.getElementById('path-tests');
+            resultsDiv.innerHTML = '';
+            
+            tests.forEach(test => {
+                const testDiv = document.createElement('div');
+                testDiv.className = 'test-item';
+                testDiv.innerHTML = `<strong>${test.name}:</strong>`;
+                
+                test.paths.forEach(path => {
+                    fetch(path, { method: 'HEAD' })
+                        .then(response => {
+                            const status = response.ok ? 'success' : 'error';
+                            const text = response.ok ? '✓' : '✗';
+                            testDiv.innerHTML += `<br><span class="${status}">${text} ${path}</span>`;
+                        })
+                        .catch(error => {
+                            testDiv.innerHTML += `<br><span class="error">✗ ${path} (Error: ${error.message})</span>`;
+                        });
+                });
+                
+                resultsDiv.appendChild(testDiv);
+            });
+        }
+        
+        // Test API
+        async function testAPI() {
+            const resultDiv = document.getElementById('api-result');
+            resultDiv.innerHTML = 'Testing API...';
+            
+            try {
+                const response = await fetch('api/projects.php');
+                if (response.ok) {
+                    const data = await response.json();
+                    resultDiv.innerHTML = `<div class="success">✓ API working! Found ${data.length} projects</div>`;
+                    if (data.length > 0) {
+                        resultDiv.innerHTML += `<pre>${JSON.stringify(data[0], null, 2)}</pre>`;
+                    }
+                } else {
+                    resultDiv.innerHTML = `<div class="error">✗ API error: ${response.status}</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">✗ API error: ${error.message}</div>`;
+            }
+        }
+        
+        // Run tests on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            testPaths();
+        });
+    </script>
+</body>
+</html> 
